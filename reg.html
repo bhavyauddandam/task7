@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+body{font-family:Arial;}
+form{width:300px;margin:auto;}
+input{width:100%;padding:8px;margin:5px 0;}
+button{padding:10px;width:100%;}
+</style>
+
+<script>
+function validate(){
+    var name=document.getElementById("name").value;
+    var email=document.getElementById("email").value;
+    var pass=document.getElementById("pass").value;
+
+    var namePattern=/^[A-Za-z]{3,}$/;
+    if(!namePattern.test(name)){
+        alert("Invalid Name");
+        return false;
+    }
+
+    var emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email)){
+        alert("Invalid Email");
+        return false;
+    }
+
+    if(pass.length<6){
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    alert("Registered Successfully");
+    return true;
+}
+</script>
+</head>
+
+<body>
+
+<h2 align="center">Registration Form</h2>
+
+<form onsubmit="return validate()">
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="email" placeholder="Email">
+<input type="password" id="pass" placeholder="Password">
+<button type="submit">Register</button>
+</form>
+
+</body>
+</html>
